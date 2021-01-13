@@ -1,0 +1,68 @@
+.homeAbout{
+    grid-column: full-start/ full-end;
+
+    display: grid;
+    grid-template-columns: 1fr 70% 1fr;
+    align-items: center;
+    justify-items: center;
+    color: $color-primary;
+    text-align: center;
+    @include respond(tab-port){
+        grid-template-columns: 1fr 85% 1fr;        
+    }
+
+    &__header{
+        grid-column: 2 / 3;
+        @include header;
+    }
+    &__year{
+        grid-column: 2 / 3;
+        margin-top: -5rem;
+        font-size: 2rem;
+        @include respond(tab-port){
+            font-size: 4rem;
+        }
+        @include respond(tab-port){
+            font-size: 3rem;
+        }
+    }
+    &__paragraph{
+        grid-column: 2 / 3;
+        
+        font-size: 1.5rem;
+        margin: 3rem 0;
+        @include respond(tab-port){
+            font-size: 3rem;
+            line-height: 5rem;
+        }
+        @include respond(tab-port){
+            font-size: 2.5rem;
+            line-height: 4.5rem;
+        }
+    }
+    &__button{
+        grid-column: 2 / 3;
+
+        font-size: 1.5rem;
+        padding: 1rem 1.5rem;
+        background-color: #fff;
+        color: $color-primary;
+        border: 1px solid $color-primary;
+        cursor: pointer;
+        
+        @include respond(tab-port){
+            font-size: 3rem;
+            padding: 1.5rem 2rem;
+        }
+
+        transition: all .5s;
+        
+        &:focus{
+            outline: none;
+        }
+        &:hover{
+            background-color: $color-primary;
+            color: #fff;
+        }
+    }
+}

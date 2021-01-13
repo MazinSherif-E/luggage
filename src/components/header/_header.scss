@@ -1,0 +1,233 @@
+@import '../../abstract/variables';
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    height: 15%;
+    width: 100%;
+    background-color: #fff;
+    @include respond(tab-port){
+        grid-row: 1 / 2;
+        position: relative;
+        grid-column: full-start / full-end;
+    }
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: [full-start] repeat(8, [col-start] minmax(min-content, 1fr) [col-end]) [full-end];
+
+    &__logo{
+        grid-column: full-start 1 / col-start 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include  respond(tab-port){
+            grid-column: 2 / 8;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5rem;
+        }
+    }
+
+    &__title{
+        font-size: 2.5rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        margin-left: 2rem;
+        font-weight: 700;
+        color: $color-primary;
+        text-decoration: none;
+        @include respond(tab-port){
+            font-size: 5rem;
+            margin-top: 1rem;
+        }
+    }
+    &__img{
+        @include respond(tab-port){
+            width: 10rem;
+        }
+    }
+
+    &__links{
+        grid-column: col-start 5 / col-start 8;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-size: 1.5rem;
+        &Item{
+            text-decoration: none;
+            color: black;
+            margin: 0 1rem;
+        }
+        @include respond(tab-port){
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+    &__socialLogin{
+        grid-column: col-start 8 / full-end;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include  respond(tab-port){
+            grid-row: 3 / 4;
+            grid-column: 2 / 8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    &__social{
+        display: flex;
+        &Item{
+            font-size: 1.5rem;
+            margin: 0 .5rem;
+            text-decoration: none;
+            color: black;
+            @include respond(tab-port){
+                font-size: 5rem;
+            }
+        }
+        
+    }
+    &__login{
+        display: flex;
+        align-items: center;
+        margin-left: 1rem;
+        &Item{
+            font-size: 1.5rem;
+            margin: 0 .5rem;
+            text-decoration: none;
+            color: black;
+        }
+        @include respond(tab-port){
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+
+    &__cart{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: -1rem 5rem 0 1rem;
+        @include respond(tab-port){
+            visibility: hidden;
+            opacity: 0;
+        }
+        
+        &Number{
+            font-size: 1.5rem; 
+            text-decoration: none;
+            color: black;     
+            margin-bottom: -1rem;
+            margin-left: .5rem;
+        }
+        &Car{
+            font-size: 2.5rem;
+            text-decoration: none;
+            color: black; 
+        }
+    }
+    &__nav{
+        grid-row: 1 / 2; 
+        grid-column: 4 / 5;
+        opacity: 0;
+        visibility: hidden;
+        @include respond(tab-port){
+            visibility: visible;
+            opacity: 1;
+            grid-column: 8 /9;
+            z-index: 200;
+            position: relative;
+            margin: 7rem 6rem 0 0;
+            cursor: pointer;
+        }
+    }
+    &__icon{
+        @include respond(tab-port){
+            &,
+            &::after,
+            &::before{
+                content: "";
+                width: 7rem;
+                height: .5rem;
+                background-color: black;
+                display: inline-block;
+                margin: 1rem 0;
+            }
+            &::before,
+            &::after{
+                content: "";
+                position: absolute;
+                transition: all .2s;
+            }
+            &::before {top: -1.8rem}
+            &::after {top: 1.8rem}  
+        }   
+        @include respond(phone){
+            &::before {height: .3rem}
+        }
+    }
+    &__checkbox{
+        visibility: hidden;
+        opacity: 0;
+        display: none;
+    }
+    &__checkbox:checked +  &__icon{
+        background-color: transparent;
+    }
+    
+    &__checkbox:checked +  &__icon::before{
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    &__checkbox:checked +  &__icon::after{
+        top: 0;
+        transform: rotate(-45deg);
+    }
+}
+
+.navToggle{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+
+    display: grid;
+    grid-template-rows: repeat(2, min-content);
+    grid-row-gap: 3rem;
+    justify-content: center;
+    align-content: flex-start;
+    font-size: 7rem;
+
+    &__login{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 8rem;
+    }
+    &__loginItem{
+        margin: 0 2rem;
+        text-decoration: none;
+        color: black;
+    }
+    &__links{
+        display: grid;
+        grid-template-rows: repeat(5, min-content);
+        grid-row-gap: 3rem;
+        justify-items: center;
+        align-items: center;
+        &Item{
+            text-decoration: none;
+            color: black;
+        }
+    }
+}

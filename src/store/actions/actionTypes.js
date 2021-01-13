@@ -1,0 +1,7 @@
+export const SET_PRODUCT = 'SET_PRODUCT';
+export const SET_SIDEDRAWER = 'SET_SIDEDRAWER';
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const ADD_TO_CART_FAIL = 'ADD_TO_CART_FAIL';
+export const FETCH_ORDERS = 'FETCH_ORDERS'
+export const FETCH_ORDERS_FAIL = 'FETCH_ORDERS_FAIL';
+export const DELETE_PRODUCT = 'DELETE_PRODUCT';

@@ -1,0 +1,34 @@
+.shopPage{
+    display: grid;
+    grid-template-rows: 30rem min-content 1fr;
+    grid-template-columns: [full-start] repeat(4, [col-start] minmax(min-content, 1fr) [col-end]) [full-end];
+    grid-row-gap: 4rem;
+    grid-column-gap: 2rem;
+
+    @include respond(tab-port){
+        grid-template-rows: 30rem 30rem min-content 1fr;
+        grid-template-columns: [full-start] 1fr [full-end];
+    }
+
+    &__header{
+        grid-column: full-start / full-end;
+        font-size: 4rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        color: $color-primary;
+        margin-top: 8rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        @include respond(tab-port){
+            font-size: 6rem;
+        }
+    }
+
+    &__items{
+        grid-column: full-start / full-end;
+    }
+    
+} 
