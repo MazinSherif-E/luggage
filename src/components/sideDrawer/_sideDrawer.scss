@@ -1,0 +1,143 @@
+@import '../../abstract/mixins';
+.sideDrawer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 15;
+    
+    background-color: rgba(black, .5);
+
+    &__content{
+        background-color: #fff;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 25vw;
+        font-family: 'Poppins', sans-serif;
+
+        display: grid;
+        grid-template-rows: 11.5rem 26rem repeat(2, min-content) 1fr;
+        @include respond(tab-port){
+            display: grid;
+            grid-template-rows: 15vh 50vh repeat(2, min-content) 1fr;
+            width: 60vw;
+        }
+        @include respond(phone){
+            display: grid;
+            grid-template-rows: 15vh 55vh repeat(2, min-content) 1fr;
+            width: 80vw;
+        }
+    }
+    &__visible{
+        animation: sideDrawerVisible;
+        animation-duration: .7s;
+    }
+    &__header{
+        background-color: black;
+        font-size: 2rem;
+        color: #fff;
+        display: grid;
+        grid-template-columns: 10rem 1fr 10rem;
+        align-items: center;
+        justify-items: center;
+        @include respond(tab-port){
+            font-size: 4rem;
+        }
+        @include respond(phone){
+            font-size: 3rem;
+        }
+    }
+    &__arrowIcon{
+        font-size: 3rem;
+        cursor: pointer;
+        @include respond(tab-port){
+            font-size: 5rem;
+        }
+        @include respond(phone){
+            font-size: 4rem;
+        }
+    }
+    &__middle{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__number{
+        font-size: 5rem;
+        margin: 3rem 0 -3rem 1.5rem;
+        @include respond(tab-port){
+            font-size: 8rem;
+        }
+        @include respond(phone){
+            font-size: 5rem;
+        }
+    }
+    &__cartIcon{
+        font-size: 10rem;
+        @include respond(tab-port){
+            font-size: 20rem;
+        }
+        @include respond(phone){
+            font-size: 15rem;
+        }
+    }
+    &__total{
+        font-family: 'Nunito', sans-serif;
+        font-weight: 700;
+        font-size: 3rem;
+        margin: 5rem 0 1rem 3rem;
+        @include respond(tab-port){
+            font-size: 6rem;
+        }
+        @include respond(phone){
+            font-size: 4rem;
+        }
+    }
+    &__line{
+        border-bottom: 1px solid $dark-grey;
+    }
+    &__button{
+        margin: 2rem;
+        font-size: 2rem;
+        font-family: 'Popins', sans-serif;
+        font-weight: 700;
+        background-color: $color-primary;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: all .5s;
+        @include respond(tab-port){
+            font-size: 4rem;
+        }
+        @include respond(phone){
+            font-size: 3rem;
+        }
+        &:hover{
+            background-color: rgba($color-primary, .8);
+        }
+        &:focus{
+            outline: none;
+        }
+    }
+}
+
+@keyframes sideDrawerVisible{
+    0%{
+        transform: translateX(35rem);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+@keyframes sideDrawerHidden{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(35rem);
+    }
+}

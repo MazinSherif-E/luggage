@@ -1,0 +1,48 @@
+@import '../../abstract/mixins';
+.home{
+    display: grid;
+    grid-template-rows: 160vh repeat(4, min-content) 1fr;
+    grid-template-columns: [full-start] 1fr repeat(8, [col-start] minmax(min-content, 1fr) [col-end]) 1fr [full-end];
+    @include respond(tab-port){
+        grid-template-rows: 40rem 80vh repeat(4, min-content) 1fr;
+    }
+
+    &__photo{
+        grid-column: full-start / full-end;
+        @include backImg(url(./home.jpg),#fff , 0);
+    }
+    &__headCaption{
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        margin: 0 25rem;
+        @include respond(tab-port){
+            margin: 0 15rem;
+        }
+        @include respond(phone){
+            margin: 0 10rem;
+        }
+    }
+    &__caption{
+        text-align: center;
+        font-size: 7rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        color: #fff;
+        line-height: 10rem;
+        @include respond(tab-port){
+            line-height: 9rem;
+        }
+        @include respond(phone){
+        }
+    }
+    &__button{
+        @include button(black, #fff, 3rem,1rem 2rem);
+        @include respond(tab-port){
+            @include button(black, #fff, 5rem,1.5rem 2.5rem); 
+        }
+        @include respond(phone){
+            @include button(black, #fff, 4.5rem,1.5rem 2.5rem); 
+        }
+    }
+}  
