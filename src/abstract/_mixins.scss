@@ -91,7 +91,12 @@
         grid-column: 2 / 3;
         @include respond(tab-port){
             width: auto;  
-            height: 70vh;          
+            height: 60vh;           
+            grid-row: 1 / 2;
+        }
+        @include respond(phone){
+            width: auto;  
+            height: 40vh;           
             grid-row: 1 / 2;
         }
     }
