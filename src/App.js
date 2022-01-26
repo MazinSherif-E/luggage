@@ -16,6 +16,7 @@ const Cart = React.lazy(() => import('./container/cart/cart'));
 const Side = React.lazy(() => import('./components/sideDrawer/sideDrawer'));
 
 class App extends Component {
+  
   render() {
     return (
       <div className={classes.App}>
